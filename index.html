@@ -52,8 +52,9 @@ body.adm #wafab,body.adm #cartbtn{display:none!important}
 <div class="mod" id="m" onclick="if(event.target.id=='m')closeAll()"><div class="box" id="mb"></div></div>
 <script>
 /* ====== PASTE YOUR SUPABASE DETAILS HERE ====== */
-const SUPA_URL="PASTE_YOUR_SUPABASE_URL";   // e.g. https://abcd1234.supabase.co (no /rest/v1)
-const SUPA_KEY="PASTE_YOUR_ANON_KEY";
+const SUPA_URL="https://hveuqbgoadlzdoyakefo.supabase.co";   // e.g. https://abcd1234.supabase.co (no /rest/v1)
+const SUPA_KEY="sb_publishable_qqLXSVqYrVgbWTQURIfPkw_1_ft0i64
+";
 /* =============================================== */
 const sb=(SUPA_URL.startsWith("https://")&&!SUPA_KEY.startsWith("PASTE"))?supabase.createClient(SUPA_URL,SUPA_KEY):null;
 const DEF={delivery:199,easypaisa:"",whatsapp:"",cats:["Ladies Suits","Gents Suits","Children Suits","Shawls & Dupatta"]};
