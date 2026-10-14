@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rizwana Fashions Store</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root,:root:not([data-theme="light"]){--bg:#fff;--card:#fff;--tx:#141414;--mu:#7b7b7b;--bd:#e9e4df;--ac:#8e1b3a;--gold:#b8955a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#fff;--card:#fff;--tx:#141414}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:'Jost',system-ui,sans-serif}
+button,input,select,textarea{font:inherit;color:var(--tx)}
+.top{background:var(--ac);color:#fff;text-align:center;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.logo{font-family:'Playfair Display',Georgia,serif;font-size:24px;letter-spacing:5px;text-transform:uppercase;line-height:1}.logo small{display:block;font:11px 'Jost';letter-spacing:4px;color:var(--gold);margin-top:4px}
+.seg{display:flex;border:1px solid var(--tx)}.seg button{border:0;background:#fff;padding:7px 12px;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}.seg button.on{background:var(--tx);color:#fff}
+.btn{border:1px solid var(--tx);background:var(--tx);color:#fff;padding:10px 18px;text-transform:uppercase;letter-spacing:2px;font-size:12px;cursor:pointer}.btn.gh{background:#fff;color:var(--tx)}.btn.ac{background:var(--ac);border-color:var(--ac)}.btn.sm{padding:5px 10px;font-size:11px;letter-spacing:1px}
+nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;padding:10px;border-bottom:1px solid var(--bd)}
+.chip{border:0;border-bottom:2px solid transparent;background:none;padding:8px 2px;text-transform:uppercase;letter-spacing:2px;font-size:12px;cursor:pointer}.chip.on{color:var(--ac);border-bottom-color:var(--ac)}
+.hero{margin:12px auto;max-width:1100px;padding:56px 20px;text-align:center;color:#fff;background:linear-gradient(135deg,#8e1b3a,#3d0f1e 60%,#b8955a 140%)}
+.hero h2{margin:0;font:500 34px 'Playfair Display',Georgia,serif;letter-spacing:3px}.hero p{margin:8px 0 14px;letter-spacing:3px;text-transform:uppercase;font-size:12px}.hero a{display:inline-block;border:1px solid #fff;color:#fff;padding:10px 26px;text-decoration:none;letter-spacing:3px;font-size:12px;text-transform:uppercase}
+main{max-width:1100px;margin:auto;padding:12px}.sec{text-align:center;font:24px 'Playfair Display',Georgia,serif;letter-spacing:3px;text-transform:uppercase;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.p{position:relative;overflow:hidden;cursor:pointer;text-align:center;transition:.25s}.p:hover{box-shadow:0 12px 28px rgba(0,0,0,.25);outline:2px solid var(--ac)}
+.p img,.ph{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .5s}.p:hover img,.p:hover .ph{transform:scale(1.08)}
+.ph{display:flex;align-items:center;justify-content:center;font-size:54px;color:#ffffffcc}
+.p::after{content:'Quick View';position:absolute;left:0;right:0;bottom:70px;background:rgba(142,27,58,.92);color:#fff;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:10px;opacity:0;transition:.3s}.p:hover::after{opacity:1}
+.p div.i{padding:10px;background:#fff;position:relative;z-index:1}.p b{display:block;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;margin-bottom:4px}.pr{color:var(--ac);font-weight:500}.mu{color:var(--mu);font-size:13px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:20}.ov.on{display:block}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:21;padding:16px;overflow:auto;transform:translateX(100%);transition:.3s}.dr.on{transform:none}
+.mod{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:12px;z-index:22;background:rgba(0,0,0,.5)}.mod.on{display:flex}.box{background:#fff;max-width:560px;width:100%;max-height:92vh;overflow:auto;padding:16px}.box img,.box .ph{max-height:380px;width:100%;object-fit:cover}.box h2{font:500 24px 'Playfair Display',serif}
+label{display:block;margin:8px 0 3px;font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:1px}input,select,textarea{width:100%;padding:9px;border:1px solid var(--bd);background:#fff}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:6px 0;flex-wrap:wrap}.qty button{width:26px;height:26px;border:1px solid var(--bd);background:#fff;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:8px 0 14px;flex-wrap:wrap}.card{border:1px solid var(--bd);padding:14px;margin-bottom:14px}.card h3{margin:0 0 8px;color:var(--ac);font:500 18px 'Playfair Display',serif}
+.note{background:#fff7e6;border:1px solid var(--gold);padding:8px 12px;font-size:13px;margin-bottom:10px}
+footer{margin-top:40px;background:#141414;color:#d8d2cc;text-align:center;padding:26px 12px;font-size:12px;letter-spacing:2px;text-transform:uppercase}footer b{color:var(--gold);font-weight:500}
+</style></head><body>
+<div class="top">Cash on Delivery &bull; Easypaisa &bull; Delivery only Rs 199</div>
+<div class="bar"><div class="logo">Rizwana Fashions<small>Ladies suits &amp; more</small></div>
+<div class="row" style="margin:0"><div class="seg" id="seg" style="display:none"><button id="vc" onclick="setView('customer')">Customer</button><button id="va" onclick="setView('admin')">Admin</button></div><button class="btn ac" id="cartbtn" onclick="openCart()">Cart (0)</button></div></div>
+<div id="cust"><nav id="nav"></nav><div class="hero"><h2>New Collection</h2><p>Beautiful suits &middot; For every budget</p><a href="#grid">Shop Now</a></div><main><div class="sec">Our Collection</div><div class="grid" id="grid"></div></main></div>
+<main id="admin" style="display:none"></main>
+<footer><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa &middot; Rs 199 Delivery</footer>
+<div class="ov" id="ov" onclick="closeAll()"></div>
+<div class="dr" id="dr"><div class="row"><h2 style="margin:0;font:500 24px 'Playfair Display',serif">Your Cart</h2><button class="btn sm gh" onclick="closeAll()">Close</button></div><div id="ci"></div>
+<div id="cf"><label>Full name *</label><input id="cn"><label>Phone number *</label><input id="cp" type="tel"><label>Complete address *</label><textarea id="ca" rows="2"></textarea>
+<label>Payment method</label><select id="cm" onchange="$('ep').style.display=this.value=='Easypaisa'?'block':'none'"><option>Cash on Delivery</option><option>Easypaisa</option></select>
+<div id="ep" style="display:none;margin-top:8px" class="mu">Send payment to Easypaisa: <b id="en"></b> <button class="btn sm gh" onclick="navigator.clipboard&&navigator.clipboard.writeText($('en').textContent)">Copy</button><input id="ct" placeholder="Transaction ID" style="margin-top:6px"></div>
+<p id="err" style="color:#c00;margin:8px 0"></p><button class="btn ac" style="width:100%" onclick="place()">Place Order</button></div></div>
+<div class="mod" id="m" onclick="if(event.target.id=='m')closeAll()"><div class="box" id="mb"></div></div>
+<script>
+const DEF={delivery:199,easypaisa:"03XX-XXXXXXX",whatsapp:"",cats:["Ladies Suits","Gents Suits","Children Suits","Shawls & Dupatta"]};
+const DEMO=[["Embroidered Lawn 3-Piece","Ladies Suits",2499,"#f3b8c8","#8e1b3a"],["Printed Cotton 2-Piece","Ladies Suits",1799,"#f5d9a8","#b8655a"],["Chiffon Party Wear","Ladies Suits",3999,"#c9b6e4","#5b2a86"],["Wash & Wear Shalwar Kameez","Gents Suits",2799,"#d7e0e6","#2f4858"],["Cotton Kurta Pajama","Gents Suits",2199,"#e8e2d0","#7a6a3a"],["Kids Frock Set","Children Suits",1299,"#ffd3c2","#e0556f"],["Boys Kurta Shalwar","Children Suits",1099,"#cfe8d9","#2e7d5b"],["Printed Wool Shawl","Shawls & Dupatta",1599,"#e9c9a8","#8a4b2a"]].map((a,i)=>({id:"d"+i,name:a[0],cat:a[1],price:a[2],desc:"Soft, comfortable fabric with a beautiful finish. Demo product - add your own from the Admin panel.",c:[a[3],a[4]],demo:1}));
+let db=null,user=null,assets=null,isAdmin=false,view="customer",tab="products",products=[],orders=[],S={...DEF},cat="All",cart=[];
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rs=n=>"Rs "+Number(n).toLocaleString(),L=()=>products.length?products:DEMO,find=id=>L().find(x=>x.id==id);
+const pic=p=>p.img?`<img src="${esc(p.img)}" alt="">`:`<div class="ph" style="background:linear-gradient(135deg,${p.c?p.c[0]:'#eee'},${p.c?p.c[1]:'#aaa'})">&#9825;</div>`;
+function setView(v){view=v;$("cust").style.display=v=="customer"?"":"none";$("admin").style.display=v=="admin"?"":"none";$("vc").className=v=="customer"?"on":"";$("va").className=v=="admin"?"on":"";if(v=="admin")adminShell();scrollTo(0,0)}
+function nav(){$("nav").innerHTML=["All",...S.cats].map(c=>`<button class="chip ${c==cat?"on":""}" data-c="${esc(c)}" onclick="cat=this.dataset.c;nav();grid()">${esc(c)}</button>`).join("")}
+function grid(){const l=L().filter(p=>cat=="All"||p.cat==cat);$("grid").innerHTML=l.length?l.map(p=>`<div class="p" onclick="detail('${p.id}')">${pic(p)}<div class="i"><b>${esc(p.name)}</b><span class="pr">${rs(p.price)}</span></div></div>`).join(""):'<p class="mu">No products in this category yet.</p>'}
+const closeAll=()=>{["ov","dr","m"].forEach(i=>$(i).classList.remove("on"))};
+function detail(id){const p=find(id);$("mb").innerHTML=`${pic(p)}<h2>${esc(p.name)}</h2><div class="pr" style="font-size:20px">${rs(p.price)}</div><p class="mu">${esc(p.cat)}</p><p>${esc(p.desc).replace(/\n/g,"<br>")}</p><div class="row"><button class="btn gh" onclick="closeAll()">Close</button><button class="btn ac" onclick="add('${id}')">Add to Cart</button></div>`;$("m").classList.add("on")}
+function add(id){const i=cart.find(x=>x.id==id);i?i.q++:cart.push({id,q:1});closeAll();openCart()}
+const sub=()=>cart.reduce((a,c)=>a+(find(c.id)?find(c.id).price*c.q:0),0),tot=()=>sub()+Number(S.delivery);
+function renderCart(){$("cartbtn").textContent=`Cart (${cart.reduce((a,b)=>a+b.q,0)})`;
+$("ci").innerHTML=cart.length?cart.map((c,i)=>{const p=find(c.id);return p?`<div class="row"><span style="flex:1">${esc(p.name)}<br><span class="pr">${rs(p.price)}</span></span><span class="qty"><button onclick="qty(${i},-1)">-</button> ${c.q} <button onclick="qty(${i},1)">+</button></span></div>`:""}).join("")+`<hr><div class="row"><span>Subtotal</span><span>${rs(sub())}</span></div><div class="row"><span>Delivery</span><span>${rs(S.delivery)}</span></div><div class="row"><b>Total</b><b class="pr">${rs(tot())}</b></div>`:'<p class="mu">Your cart is empty.</p>';
+$("cf").style.display=cart.length?"":"none";$("en").textContent=S.easypaisa}
+function qty(i,d){cart[i].q+=d;if(cart[i].q<1)cart.splice(i,1);renderCart()}
+function openCart(){renderCart();$("ov").classList.add("on");$("dr").classList.add("on")}
+async function place(){const n=$("cn").value.trim(),p=$("cp").value.trim(),a=$("ca").value.trim(),m=$("cm").value,t=$("ct").value.trim();
+if(!n||!p||!a)return $("err").textContent="Name, phone number and address are required.";
+if(m=="Easypaisa"&&!t)return $("err").textContent="Please enter your Easypaisa Transaction ID.";
+const items=cart.map(c=>{const x=find(c.id);return{name:x.name,price:x.price,q:c.q}}),total=tot();
+const wa=()=>{if(!S.whatsapp)return $("err").textContent="Order could not be saved. The store has not set a WhatsApp number yet.";
+const msg=`New Order - Rizwana Fashions\n${items.map(i=>i.name+" x"+i.q+" = "+rs(i.price*i.q)).join("\n")}\nDelivery: ${rs(S.delivery)}\nTotal: ${rs(total)}\nPayment: ${m} ${t}\nName: ${n}\nPhone: ${p}\nAddress: ${a}`;
+location.href="https://wa.me/"+S.whatsapp.replace(/\D/g,"")+"?text="+encodeURIComponent(msg)};
+if(!db)return wa();
+try{await db.doc("orders/o"+Date.now()).set({name:n,phone:p,address:a,pay:m,txn:t,items,total,at:Date.now(),status:"New"});
+cart=[];renderCart();closeAll();$("mb").innerHTML='<h2>Thank you!</h2><p>Your order has been received. We will contact you shortly to confirm it.</p><button class="btn" onclick="closeAll()">Continue Shopping</button>';$("m").classList.add("on")}catch(e){wa()}}
+/* ADMIN */
+let ed=null;
+function adminShell(){if(!isAdmin)return;const T=[["products","Products"],["orders","Orders"],["settings","Settings"]];
+$("admin").innerHTML=`<div class="sec">Admin Panel</div><div class="tabs">${T.map(t=>`<button class="btn sm ${tab==t[0]?"":"gh"}" onclick="tab='${t[0]}';adminShell()">${t[1]}</button>`).join("")}</div><div id="tc"></div>`;
+if(tab=="products"){$("tc").innerHTML=`${products.length?"":'<div class="note">Your store is showing demo products. They disappear as soon as you add your first real product.</div>'}<div class="card"><h3 id="ft">Add New Product</h3><label>Product name</label><input id="an"><label>Category</label><select id="ac">${S.cats.map(c=>`<option>${esc(c)}</option>`).join("")}</select><label>Price (Rs)</label><input id="ap" type="number"><label>Description</label><textarea id="ad" rows="3"></textarea><label>Picture (upload from gallery)</label><input id="af" type="file" accept="image/*"><p></p><button class="btn ac" onclick="saveP()">Save Product</button> <button class="btn gh" onclick="ed=null;adminShell()">Clear</button> <span id="am" class="mu"></span></div><div class="card"><h3>All Products</h3><div id="pl"></div></div>`;plist()}
+if(tab=="orders"){$("tc").innerHTML='<div class="card"><h3>Orders</h3><div id="ol"></div></div>';olist()}
+if(tab=="settings")$("tc").innerHTML=`<div class="card"><h3>Store Settings</h3><label>Delivery charges (Rs)</label><input id="sd" type="number" value="${S.delivery}"><label>Easypaisa number</label><input id="se" value="${esc(S.easypaisa)}"><label>WhatsApp number for orders (e.g. 923001234567)</label><input id="sw" value="${esc(S.whatsapp)}"><label>Categories (separate with commas)</label><input id="sc" value="${esc(S.cats.join(", "))}"><p></p><button class="btn ac" onclick="saveS()">Save Settings</button> <span id="sm" class="mu"></span></div>`}
+function plist(){const e=$("pl");if(e)e.innerHTML=products.map(p=>`<div class="row"><span>${esc(p.name)} - ${rs(p.price)} <i class="mu">${esc(p.cat)}</i></span><span><button class="btn sm gh" onclick="editP('${p.id}')">Edit</button> <button class="btn sm gh" onclick="delP('${p.id}')">Delete</button></span></div>`).join("")||'<p class="mu">No products yet.</p>'}
+function olist(){const e=$("ol");if(e)e.innerHTML=orders.map(o=>`<div style="border-bottom:1px solid var(--bd);padding:8px 0"><b>${esc(o.name)}</b> &middot; ${esc(o.phone)} &middot; ${rs(o.total)} &middot; ${esc(o.pay)} ${esc(o.txn)}<br><span class="mu">${esc(o.address)}<br>${o.items.map(i=>esc(i.name)+" x"+i.q).join(", ")} &middot; ${new Date(o.at).toLocaleString()}</span><br><select style="width:auto;margin-top:6px" onchange="setSt('${o.id}',this.value)">${["New","Confirmed","Shipped","Delivered","Cancelled"].map(s=>`<option ${s==o.status?"selected":""}>${s}</option>`).join("")}</select></div>`).join("")||'<p class="mu">No orders yet.</p>'}
+async function setSt(id,s){const o=orders.find(x=>x.id==id);if(s=="Cancelled"&&o&&confirm("Message the customer on WhatsApp about the cancellation?")){location.href="https://wa.me/"+String(o.phone).replace(/\D/g,"").replace(/^0/,"92")+"?text="+encodeURIComponent("Hello "+o.name+", your order at Rizwana Fashions has been cancelled.")}await db.doc("orders/"+id).update({status:s})}
+async function saveP(){const f=$("af").files[0],am=$("am");am.textContent="Saving...";try{let img=ed?(find(ed)||{}).img||"":"";if(f&&assets)img=(await assets.upload(f)).url;
+const d={name:$("an").value.trim(),cat:$("ac").value,price:Number($("ap").value),desc:$("ad").value,img,at:Date.now()};if(!d.name||!d.price)return am.textContent="Enter a name and price.";
+await db.doc("products/"+(ed||"p"+Date.now())).set(d);ed=null;adminShell();$("am").textContent="Saved!"}catch(e){am.textContent="Error: "+(e.message||e)}}
+function editP(id){const p=find(id);ed=id;$("an").value=p.name;$("ac").value=p.cat;$("ap").value=p.price;$("ad").value=p.desc;$("ft").textContent="Edit Product";scrollTo(0,0)}
+async function delP(id){if(confirm("Delete this product?"))await db.doc("products/"+id).delete()}
+async function saveS(){S={delivery:Number($("sd").value)||0,easypaisa:$("se").value,whatsapp:$("sw").value,cats:$("sc").value.split(",").map(s=>s.trim()).filter(Boolean)};await db.doc("settings/main").set(S);$("sm").textContent="Saved!"}
+nav();grid();renderCart();
+(async()=>{try{db=await claude.use("db");user=await claude.use("user");assets=await claude.use("assets");isAdmin=!!(user&&user.canEdit());
+if(isAdmin){$("seg").style.display="flex";setView("customer")}
+if(!db)return;
+db.collection("settings").onSnapshot(s=>{const d=s.docs.find(x=>x.id=="main");S=d?{...DEF,...d.data()}:{...DEF};nav();grid();renderCart();if(view=="admin"&&tab=="settings"&&!document.activeElement.closest("#tc"))adminShell()});
+db.collection("products").onSnapshot(s=>{products=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.at-a.at);grid();renderCart();plist()});
+if(isAdmin)db.collection("orders").onSnapshot(s=>{orders=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.at-a.at);olist()})}catch(e){}})();
+</script></body></html>
