@@ -41,7 +41,7 @@ body.adm #wafab,body.adm #cartbtn{display:none!important}
 <div id="cfgnote" class="note" style="display:none">Supabase is not connected yet. Open index.html and paste your SUPA_URL and SUPA_KEY at the top of the script. Until then only demo products are shown.</div>
 <div id="cust"><nav id="nav"></nav><div class="hero"><h2>New Collection</h2><p>Beautiful suits &middot; For every budget</p><a href="#grid">Shop Now</a></div><main><div class="sec">Our Collection</div><div class="grid" id="grid"></div></main></div>
 <main id="admin" style="display:none"></main>
-<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a></footer>
+<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a> &nbsp;|&nbsp; <a onclick="loginBox()" style="font-size:11px">Staff</a></footer>
 <a id="wafab" target="_blank" rel="noopener">WhatsApp</a>
 <div class="ov" id="ov" onclick="closeAll()"></div>
 <div class="dr" id="dr"><div class="row"><h2 style="margin:0;font:500 24px 'Playfair Display',serif">Your Cart</h2><button class="btn sm gh" onclick="closeAll()">Close</button></div><div id="ci"></div>
@@ -65,7 +65,7 @@ const pic=p=>p.img?`<img src="${esc(p.img)}" alt="">`:`<div class="ph" style="ba
 function setView(v){view=v;$("cust").style.display=v=="customer"?"":"none";$("foot").style.display=(adminEntry&&v=="admin")?"none":"";$("admin").style.display=v=="admin"?"":"none";$("vc").className=v=="customer"?"on":"";$("va").className=v=="admin"?"on":"";if(v=="admin")adminShell();scrollTo(0,0)}
 function nav(){$("nav").innerHTML=["All",...S.cats].map(c=>`<button class="chip ${c==cat?"on":""}" data-c="${esc(c)}" onclick="cat=this.dataset.c;nav();grid()">${esc(c)}</button>`).join("");$("dtop").textContent="Delivery only "+rs(S.delivery);const w=$("wafab");if(S.whatsapp){w.style.display="flex";w.href="https://wa.me/"+wnum(S.whatsapp)+"?text="+encodeURIComponent("Hello Rizwana Fashions, I have a question.")}else w.style.display="none";const wl=$("walink");if(S.whatsapp){wl.style.display="";wl.href="https://wa.me/"+wnum(S.whatsapp)}else wl.style.display="none"}
 function grid(){const l=L().filter(p=>cat=="All"||p.cat==cat);$("grid").innerHTML=l.length?l.map(p=>`<div class="p" onclick="detail('${p.id}')">${pic(p)}<div class="i"><b>${esc(p.name)}</b><span class="pr">${rs(p.price)}</span></div></div>`).join(""):'<p class="mu">No products in this category yet.</p>'}
-const adminEntry=location.hash=="#admin";if(adminEntry)document.body.classList.add("adm");
+const adminEntry=false;
 const closeAll=()=>{if(adminEntry&&!isAdmin)return;["ov","dr","m"].forEach(i=>$(i).classList.remove("on"))};
 function detail(id){const p=find(id);$("mb").innerHTML=`${pic(p)}<h2>${esc(p.name)}</h2><div class="pr" style="font-size:20px">${rs(p.price)}</div><p class="mu">${esc(p.cat)}</p><p>${esc(p.descr).replace(/\n/g,"<br>")}</p><div class="row"><button class="btn gh" onclick="closeAll()">Close</button><button class="btn ac" onclick="add('${id}')">Add to Cart</button></div>`;$("m").classList.add("on")}
 function add(id){const i=cart.find(x=>x.id==id);i?i.q++:cart.push({id,q:1});closeAll();openCart()}
@@ -90,10 +90,10 @@ cart=[];renderCart();closeAll();$("mb").innerHTML=`<h2>Thank you!</h2><p>Your or
 function trackBox(){$("mb").innerHTML=`<h2>Track Your Order</h2><label>Phone number used for the order</label><input id="tp" type="tel"><div id="tr" style="margin-top:10px"></div><div class="row"><button class="btn gh" onclick="closeAll()">Close</button><button class="btn ac" onclick="doTrack()">Check</button></div>`;$("m").classList.add("on")}
 async function doTrack(){if(!sb)return;const {data,error}=await sb.rpc("get_orders_by_phone",{p_phone:$("tp").value});$("tr").innerHTML=error?'<p style="color:#c00">Could not check right now.</p>':(data&&data.length?data.map(o=>`<div style="border-bottom:1px solid var(--bd);padding:8px 0"><b>#${esc(o.ref||"-")}</b> &middot; <b class="pr">${esc(o.status)}</b><br><span class="mu">${(o.items||[]).map(esc).join("<br>")}<br>${rs(o.total)} &middot; ${new Date(o.created_at).toLocaleDateString()}</span></div>`).join(""):'<p class="mu">No orders found for this number.</p>')}
 /* ===== AUTH ===== */
-function loginBox(){if(!sb)return alert("Connect Supabase first.");$("mb").innerHTML=`<h2>Staff Login</h2><label>Email</label><input id="le" type="email"><label>Password</label><input id="lp" type="password"><p id="lerr" style="color:#c00"></p><div class="row"><button class="btn gh" onclick="location.href=location.pathname">Back to store</button><button class="btn ac" onclick="login()">Login</button></div>`;$("m").classList.add("on")}
-async function login(){const {error}=await sb.auth.signInWithPassword({email:$("le").value.trim(),password:$("lp").value});if(error)return $("lerr").textContent=error.message;isAdmin=true;closeAll();await checkAuth()}
+function loginBox(){if(!sb){$("mb").innerHTML='<h2>Staff Login</h2><p style="color:#c00"><b>The database is not connected yet.</b></p><p>Open <b>index.html</b> in Notepad. At the top of the script replace <b>PASTE_YOUR_SUPABASE_URL</b> and <b>PASTE_YOUR_ANON_KEY</b> with your Supabase Project URL and anon key, save, and upload the file to GitHub again. Then the Staff login will work.</p><button class="btn gh" onclick="closeAll()">Close</button>';$("m").classList.add("on");return}$("mb").innerHTML=`<h2>Staff Login</h2><label>Email</label><input id="le" type="email"><label>Password</label><input id="lp" type="password"><p id="lerr" style="color:#c00"></p><div class="row"><button class="btn gh" onclick="closeAll()">Cancel</button><button class="btn ac" onclick="login()">Login</button></div>`;$("m").classList.add("on")}
+async function login(){const {error}=await sb.auth.signInWithPassword({email:$("le").value.trim(),password:$("lp").value});if(error)return $("lerr").textContent=error.message;isAdmin=true;closeAll();await checkAuth();setView("admin")}
 async function logout(){await sb.auth.signOut();location.href=location.pathname}
-async function checkAuth(){const {data}=await sb.auth.getSession();isAdmin=!!data.session;const on=isAdmin&&adminEntry;$("seg").style.display=on?"flex":"none";$("lo").style.display=on?"":"none";if(on){await loadOrders();setView("admin")}}
+async function checkAuth(){const {data}=await sb.auth.getSession();isAdmin=!!data.session;$("seg").style.display=isAdmin?"flex":"none";$("lo").style.display=isAdmin?"":"none";if(isAdmin)await loadOrders()}
 /* ===== DATA ===== */
 async function loadAll(){const [s,p]=await Promise.all([sb.from("settings").select("*").eq("id",1).maybeSingle(),sb.from("products").select("*").order("created_at",{ascending:false})]);
 if(s.data)S={...DEF,...s.data};products=p.data||[];nav();grid();renderCart()}
@@ -122,5 +122,8 @@ async function delP(id){if(confirm("Delete this product?")){await sb.from("produ
 async function saveS(){const d={id:1,delivery:Number($("sd").value)||0,easypaisa:$("se").value.trim(),whatsapp:$("sw").value.trim(),cats:$("sc").value.split(",").map(s=>s.trim()).filter(Boolean)};const {error}=await sb.from("settings").upsert(d);if(error)return $("sm").textContent="Error: "+error.message;S={...S,...d};nav();grid();renderCart();$("sm").textContent="Saved!";$("wl").textContent=S.whatsapp?"https://wa.me/"+wnum(S.whatsapp):"(save a number first)"}
 /* ===== START ===== */
 nav();grid();renderCart();
+if(location.hash=="#admin")setTimeout(loginBox,400);
+window.addEventListener("hashchange",()=>{if(location.hash=="#admin")loginBox()});
+{let t=0,tm;document.querySelector(".logo").addEventListener("click",()=>{t++;clearTimeout(tm);tm=setTimeout(()=>t=0,2500);if(t>=5){t=0;loginBox()}})}
 if(!sb)$("cfgnote").style.display="block";else{loadAll();checkAuth().then(()=>{if(adminEntry&&!isAdmin){$("cust").style.display="none";$("foot").style.display="none";loginBox()}})}
 </script></body></html>
