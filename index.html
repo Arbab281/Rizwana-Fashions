@@ -4,6 +4,7 @@
 <title>Rizwana Fashions Store</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Jost:wght@300;400;500&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.addEventListener("error",function(e){var d=document.createElement("div");d.style.cssText="position:fixed;left:0;right:0;bottom:0;background:#c00;color:#fff;padding:8px 12px;font:13px monospace;z-index:99";d.textContent="Page error: "+(e.message||"unknown")+" (line "+(e.lineno||"?")+")";document.body?document.body.appendChild(d):0})</script>
 <style>
 :root{--tx:#141414;--mu:#7b7b7b;--bd:#e9e4df;--ac:#8e1b3a;--gold:#b8955a}
 *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--tx);font-family:'Jost',system-ui,sans-serif}
@@ -59,7 +60,7 @@ footer{padding:20px 10px;font-size:11px;line-height:2.2}
 <div id="cfgnote" class="note" style="display:none">Supabase is not connected yet. Open index.html and paste your SUPA_URL and SUPA_KEY at the top of the script. Until then only demo products are shown.</div>
 <div id="cust"><nav id="nav"></nav><div class="hero"><h2>New Collection</h2><p>Beautiful suits &middot; For every budget</p><a href="#grid">Shop Now</a></div><main><div class="sec">Our Collection</div><div class="grid" id="grid"></div></main></div>
 <main id="admin" style="display:none"></main>
-<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a> &nbsp;|&nbsp; <a onclick="loginBox()" style="font-size:11px">Staff</a></footer>
+<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a> &nbsp;|&nbsp; <a onclick="loginBox()" style="font-size:11px">Staff</a><br><span style="opacity:.45;font-size:10px;letter-spacing:1px">v4</span></footer>
 <a id="wafab" target="_blank" rel="noopener">WhatsApp</a>
 <div class="ov" id="ov" onclick="closeAll()"></div>
 <div class="dr" id="dr"><div class="row"><h2 style="margin:0;font:500 24px 'Playfair Display',serif">Your Cart</h2><button class="btn sm gh" onclick="closeAll()">Close</button></div><div id="ci"></div>
