@@ -41,17 +41,18 @@ input,select,textarea{font-size:16px}
 @media(min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:701px) and (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px),(max-device-width:700px){
-.top{font-size:10px;letter-spacing:1px;padding:6px}
+.top{font-size:12px;letter-spacing:1px;padding:8px}
 .bar{padding:8px 12px;justify-content:center;text-align:center}.bar .row{width:100%;justify-content:center;margin:4px 0}
-.logo{font-size:19px;letter-spacing:3px}.logo small{font-size:9px;letter-spacing:3px}
-nav{gap:16px;padding:6px;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start}.chip{white-space:nowrap;font-size:11px}
-.hero{padding:36px 14px;margin:8px}.hero h2{font-size:24px;letter-spacing:2px}.hero p{font-size:11px;letter-spacing:2px}
-.sec{font-size:19px;letter-spacing:2px}main{padding:8px}
+.logo{font-size:25px;letter-spacing:3px}.logo small{font-size:11px;letter-spacing:3px}
+nav{gap:16px;padding:6px;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start}.chip{white-space:nowrap;font-size:15px;letter-spacing:1px;padding:10px 2px}
+.hero{padding:36px 14px;margin:8px}.hero h2{font-size:32px;letter-spacing:2px}.hero p{font-size:14px;letter-spacing:2px}.hero a{font-size:14px;padding:12px 28px}
+.sec{font-size:26px;letter-spacing:2px}main{padding:8px}
 .grid{grid-template-columns:1fr;gap:16px;max-width:520px;margin:auto}.p b{font-size:14px;letter-spacing:1.5px}.pr{font-size:16px}.p img,.ph{aspect-ratio:4/5}
 .dr{width:100%;padding:12px}.box{padding:12px;max-height:94vh}.card{padding:10px}
-.btn{padding:10px 14px;letter-spacing:1px}.tabs .btn{flex:1 1 auto}
-footer{padding:20px 10px;font-size:11px;line-height:2.2}
-#wafab{width:48px;height:48px;bottom:10px;left:10px}
+.btn{padding:13px 16px;letter-spacing:1px;font-size:15px}.btn.sm{padding:9px 12px;font-size:13px}.tabs .btn{flex:1 1 auto}
+footer{padding:24px 10px;font-size:14px;line-height:2.4;letter-spacing:1px}
+#wafab{width:56px;height:56px;bottom:10px;left:10px;font-size:12px}
+body{font-size:17px}label{font-size:14px}input,select,textarea{font-size:17px;padding:12px}.mu{font-size:15px}.seg button{font-size:14px;padding:9px 12px}.qty button{width:36px;height:36px;font-size:18px}.box h2{font-size:28px}.card h3{font-size:22px}.note{font-size:15px}
 }
 @media(hover:none){.p:hover{box-shadow:none;outline:0}.p:hover img,.p:hover .ph{transform:none}.p::after{display:none}}
 </style></head><body>
@@ -61,7 +62,7 @@ footer{padding:20px 10px;font-size:11px;line-height:2.2}
 <div id="cfgnote" class="note" style="display:none">Supabase is not connected yet. Open index.html and paste your SUPA_URL and SUPA_KEY at the top of the script. Until then only demo products are shown.</div>
 <div id="cust"><nav id="nav"></nav><div class="hero"><h2>New Collection</h2><p>Beautiful suits &middot; For every budget</p><a href="#grid">Shop Now</a></div><main><div class="sec">Our Collection</div><div class="grid" id="grid"></div></main></div>
 <main id="admin" style="display:none"></main>
-<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a> &nbsp;|&nbsp; <a onclick="loginBox()" style="font-size:11px">Staff</a><br><span style="opacity:.45;font-size:10px;letter-spacing:1px">v4</span></footer>
+<footer id="foot"><b>Rizwana Fashions Store</b><br>Cash on Delivery &middot; Easypaisa<br><br><a id="walink" target="_blank" rel="noopener" style="display:none">Chat with us on WhatsApp</a> &nbsp;|&nbsp; <a onclick="trackBox()">Track your order</a> &nbsp;|&nbsp; <a onclick="loginBox()" style="font-size:11px">Staff</a><br><span style="opacity:.45;font-size:10px;letter-spacing:1px">v5</span></footer>
 <a id="wafab" target="_blank" rel="noopener">WhatsApp</a>
 <div class="ov" id="ov" onclick="closeAll()"></div>
 <div class="dr" id="dr"><div class="row"><h2 style="margin:0;font:500 24px 'Playfair Display',serif">Your Cart</h2><button class="btn sm gh" onclick="closeAll()">Close</button></div><div id="ci"></div>
@@ -141,6 +142,7 @@ function editP(id){const p=products.find(x=>x.id==id);ed=id;$("an").value=p.name
 async function delP(id){if(confirm("Delete this product?")){await sb.from("products").delete().eq("id",id);await loadAll();adminShell()}}
 async function saveS(){const d={id:1,delivery:Number($("sd").value)||0,easypaisa:$("se").value.trim(),whatsapp:$("sw").value.trim(),cats:$("sc").value.split(",").map(s=>s.trim()).filter(Boolean)};const {error}=await sb.from("settings").upsert(d);if(error)return $("sm").textContent="Error: "+error.message;S={...S,...d};nav();grid();renderCart();$("sm").textContent="Saved!";$("wl").textContent=S.whatsapp?"https://wa.me/"+wnum(S.whatsapp):"(save a number first)"}
 /* ===== START ===== */
+try{if(matchMedia("(max-device-width:700px)").matches&&innerWidth>screen.width*1.25)document.documentElement.style.zoom=innerWidth/screen.width}catch(e){}
 nav();grid();renderCart();
 if(location.hash=="#admin")setTimeout(loginBox,400);
 window.addEventListener("hashchange",()=>{if(location.hash=="#admin")loginBox()});
